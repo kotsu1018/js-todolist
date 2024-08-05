@@ -1,0 +1,106 @@
+@import url(./reset.css);
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+        'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    width: 375px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container h1 {
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.todo__input__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#todo__input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+    padding: 5px 10px;
+    outline: none;
+}
+#todo__submit__button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+#todo__submit__button:hover {
+    background-color: #dedede;
+}
+
+#todo__input {
+    margin-right: 20px;
+}
+
+#todo__status__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.todo__list li {
+    list-style: none;
+}
+.todo__list {
+    width: 100%;
+    padding: 0;
+}
+.todo__wrapper {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button__list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 10px;
+}
+.todo_item {
+    width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+label,
+.todo-status {
+    cursor: pointer;
+}
+
+.todo__button,
+.progress__button,
+.done__button {
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 8px;
+    transition: 0.3s ease-in-out all;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.todo__button:hover,
+.progress__button:hover,
+.done__button:hover {
+    background-color: #dedede;
+}
