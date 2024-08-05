@@ -11,16 +11,20 @@ const todoInput = document.querySelector('#todo__input');
 const todoList = document.querySelector('.todo__list');
 
 // クリックイベントに関する情報を持っている
-const setStatus = (event) => {
+// idを持ってきて、クリックしたら、todostatusが変わる
+const showTodoByStatus = (event) => {
     todoStatus = event.currentTarget.id;
+    updateTodo();
 };
 
 // radioボタン全部にイベントリスナーをつけると長くなるから、mapを使って１行で記載できる
 // mapは中に入ってる数によって、処理される
-todoStatusList.map((status) => status.addEventListener('click', setStatus));
+todoStatusList.map((status) => status.addEventListener('click', showTodoByStatus));
 
 const updateTodo = () => {
     todoList.replaceChildren();
+    // todostatusがallの場合は全部表示する
+    // それ以外の場合はtodostatusの値に合うtodoを表示する（選択させたボタンだけ表示）
     if (todoStatus === 'all') {
         createTodo(todos);
     } else {
@@ -31,6 +35,8 @@ const updateTodo = () => {
 };
 
 const changeStatus = (newStatus, todo) => {
+    // ステータス変更ボタンが押されたとき実行される。ステータスがが変わるから
+    // 　todoはステータスの一つずつでの、ステータス
     todo.status = newStatus;
     updateTodo();
 };
@@ -120,11 +126,6 @@ const createTodo = (todos) => {
     });
 };
 
-const showTodoStatus = (event) => {
-    todoStatus = event.currentTarget.id;
-    updateTodo();
-};
-
-todoStatusList.map((status) => status.addEventListener('click', showTodoStatus));
+todoStatusList.map((status) => status.addEventListener('click', showTodoByStatus));
 // ボタンを持ってくる
 todoSubmitButton.addEventListener('click', addTodoList);
